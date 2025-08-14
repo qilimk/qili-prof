@@ -8,7 +8,7 @@ import Footer from "@/components/Footer";
 import Sidebar from "@/components/Sidebar";
 
 export const metadata: Metadata = {
-  title: "Prof. Jane Doe — Computer Science",
+  title: "Prof. Qi Li — Computer Science",
   description: "Research, publications, teaching, and group.",
 };
 
@@ -19,13 +19,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="bg-white text-gray-900 antialiased">
         <div id="top" />
         <div className="mx-auto max-w-6xl px-4">
+          {/* Navbar always on top */}
           <NavBar />
 
-          {/* ===== Two columns below the navbar ===== */}
-          <div className="py-8 grid grid-cols-1 gap-8 md:grid-cols-[280px,1fr]">
-            <aside className="md:sticky md:top-6 h-fit">
+          {/* Sidebar + main content */}
+          <div className="grid gap-8 py-8 md:grid-cols-[210px,1fr]">
+            <aside className="md:sticky md:top-6 self-start">
               <Sidebar />
             </aside>
+
             <main className="min-w-0">
               {children}
             </main>
@@ -34,6 +36,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Footer />
         </div>
 
+        {/* Cloudflare Web Analytics */}
         <Script
           src="https://static.cloudflareinsights.com/beacon.min.js"
           strategy="afterInteractive"
