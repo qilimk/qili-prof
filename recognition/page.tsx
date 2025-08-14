@@ -1,45 +1,27 @@
+// app/recognition/page.tsx
 import awards from "@/data/awards.json";
 import talks from "@/data/talks.json";
 import press from "@/data/press.json";
+
+export const metadata = {
+  title: "Recognition — Awards • Talks • Press",
+};
 
 type Award = { year: string | number; text: string };
 type Talk  = { date: string; title: string };
 type Press = { year: string | number; outlet: string; title: string; link?: string };
 
-// helper to sort numbers/years descending, falling back safely
-function toYearNum(y: string | number) {
-  const m = String(y).match(/\d{4}/);
-  return m ? Number(m[0]) : -Infinity;
-}
-
-// parse things like "03/2024", "3/2024", "2024-03", "Mar 2024"
-function toDateKey(d: string) {
-  // Try MM/YYYY
-  const mmYy = d.match(/(\d{1,2})[/-](\d{4})/);
-  if (mmYy) {
-    const mm = Number(mmYy[1]);
-    const yy = Number(mmYy[2]);
-    return yy * 100 + mm; // 2024*100+3 = 202403
-  }
-  // Try YYYY-MM
-  const yMd = d.match(/(\d{4})-(\d{1,2})/);
-  if (yMd) return Number(yMd[1]) * 100 + Number(yMd[2]);
-  // Try "Mon YYYY"
+const toYearNum = (y: string | number) => Number(String(y).match(/\d{4}/)?.[0] ?? -1);
+const toDateKey = (d: string) => {
+  const mmYy = d.match(/(\d{1,2})[/-](\d{4})/); if (mmYy) return +mmYy[2] * 100 + +mmYy[1];
+  const yMd = d.match(/(\d{4})-(\d{1,2})/);     if (yMd)  return +yMd[1] * 100 + +yMd[2];
   const monYy = d.match(/([A-Za-z]{3,})\s+(\d{4})/);
   if (monYy) {
-    const months = ["jan","feb","mar","apr","may","jun","jul","aug","sep","oct","nov","dec"];
-    const idx = months.indexOf(monYy[1].slice(0,3).toLowerCase());
-    return Number(monYy[2]) * 100 + (idx >= 0 ? idx + 1 : 0);
+    const m = ["jan","feb","mar","apr","may","jun","jul","aug","sep","oct","nov","dec"]
+      .indexOf(monYy[1].slice(0,3).toLowerCase()) + 1;
+    return +monYy[2] * 100 + (m || 0);
   }
-  // Try bare year
-  const yr = d.match(/\d{4}/);
-  if (yr) return Number(yr[0]) * 100 + 0;
-  return -Infinity;
-}
-
-export const metadata = {
-  title: "Recognition — Awards, Talks, Press",
-  description: "Selected awards, invited talks, and press mentions.",
+  const yr = d.match(/\d{4}/); return yr ? +yr[0] * 100 : -1;
 };
 
 export default function RecognitionPage() {
@@ -49,21 +31,16 @@ export default function RecognitionPage() {
 
   return (
     <section className="space-y-10">
-      {/* Page title + TOC */}
-      <div>
+      <header>
         <h1 className="text-3xl font-bold">Recognition</h1>
-        <p className="mt-2 text-gray-600">Highlights consolidated into three sections.</p>
-        <nav className="mt-4 text-sm">
-          <ul className="flex flex-wrap gap-4">
-            <li><a href="#awards" className="text-blue-600 hover:underline">Awards</a></li>
-            <li><a href="#talks"  className="text-blue-600 hover:underline">Talks</a></li>
-            <li><a href="#press"  className="text-blue-600 hover:underline">Press</a></li>
-          </ul>
+        <nav className="mt-3 text-sm">
+          <a href="#awards" className="mr-4 text-blue-600 hover:underline">Awards</a>
+          <a href="#talks" className="mr-4 text-blue-600 hover:underline">Talks</a>
+          <a href="#press" className="text-blue-600 hover:underline">Press</a>
         </nav>
-      </div>
+      </header>
 
-      {/* Awards */}
-      <div id="awards">
+      <section id="awards">
         <h2 className="text-2xl font-semibold">Awards</h2>
         <ul className="mt-3 space-y-2">
           {awardsSorted.map((a, i) => (
@@ -73,10 +50,9 @@ export default function RecognitionPage() {
             </li>
           ))}
         </ul>
-      </div>
+      </section>
 
-      {/* Talks */}
-      <div id="talks">
+      <section id="talks">
         <h2 className="text-2xl font-semibold">Talks</h2>
         <ul className="mt-3 space-y-2">
           {talksSorted.map((t, i) => (
@@ -86,10 +62,9 @@ export default function RecognitionPage() {
             </li>
           ))}
         </ul>
-      </div>
+      </section>
 
-      {/* Press */}
-      <div id="press">
+      <section id="press">
         <h2 className="text-2xl font-semibold">Press</h2>
         <ul className="mt-3 space-y-2">
           {pressSorted.map((p, i) => (
@@ -98,25 +73,15 @@ export default function RecognitionPage() {
               <span>
                 <strong>{p.outlet}</strong>:{" "}
                 {p.link ? (
-                  <a href={p.link} target="_blank" rel="noreferrer" className="text-blue-600 hover:underline">
+                  <a className="text-blue-600 hover:underline" href={p.link} target="_blank" rel="noreferrer">
                     {p.title}
                   </a>
-                ) : (
-                  p.title
-                )}
+                ) : p.title}
               </span>
             </li>
           ))}
         </ul>
-      </div>
-
-      <div className="pt-4">
-        <a href="#top" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}
-           className="text-sm text-blue-600 hover:underline">
-          Back to top
-        </a>
-      </div>
+      </section>
     </section>
   );
 }
-

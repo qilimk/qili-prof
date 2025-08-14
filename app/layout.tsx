@@ -8,7 +8,7 @@ import Footer from "@/components/Footer";
 import Sidebar from "@/components/Sidebar";
 
 export const metadata: Metadata = {
-  title: "Prof. Jane Doe — Computer Science",
+  title: "Dr. Qi Li — Computer Science",
   description: "Research, publications, teaching, and group.",
 };
 
