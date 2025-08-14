@@ -58,9 +58,10 @@ export default function HomePage() {
         </ul>
       </section>
 
-      <p className="text-sm text-gray-500">
-        Structure mirrors the reference site (About/Updates/Teaching/Service) with separate pages linked in the top nav. :contentReference[oaicite:1]{index=1}
-      </p>
+<p className="text-sm text-gray-500">
+  Structure mirrors the reference site (About/Updates/Teaching/Service) with separate pages linked in the top nav. [Reference 1]
+</p>
+
     </div>
   );
 }
