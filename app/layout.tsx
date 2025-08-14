@@ -8,13 +8,12 @@ import Footer from "@/components/Footer";
 import Sidebar from "@/components/Sidebar";
 
 export const metadata: Metadata = {
-  title: "Dr. Qi Li — Computer Science",
+  title: "Prof. Jane Doe — Computer Science",
   description: "Research, publications, teaching, and group.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const token = process.env.NEXT_PUBLIC_CF_BEACON_TOKEN;
-
   return (
     <html lang="en">
       <body className="bg-white text-gray-900 antialiased">
@@ -22,12 +21,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <div className="mx-auto max-w-6xl px-4">
           <NavBar />
 
-          {/* Global two-column layout */}
+          {/* ===== Two columns below the navbar ===== */}
           <div className="py-8 grid grid-cols-1 gap-8 md:grid-cols-[280px,1fr]">
             <aside className="md:sticky md:top-6 h-fit">
               <Sidebar />
             </aside>
-
             <main className="min-w-0">
               {children}
             </main>

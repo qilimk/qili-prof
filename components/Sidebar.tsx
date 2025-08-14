@@ -1,21 +1,22 @@
+// components/Sidebar.tsx
 import Image from "next/image";
 import profile from "@/data/profile.json";
 import links from "@/data/links.json";
 
 export default function Sidebar() {
   return (
-    <div className="space-y-6 sticky top-6">
+    <div className="space-y-6">
+      {/* Fixed-height, responsive headshot */}
+      <div className="relative w-full h-64 md:h-72 overflow-hidden rounded">
+        <Image
+          src="/qi_headshot.jpg"      // file must be in /public
+          alt={profile.name}
+          fill                         // fills the container box
+          className="object-cover"     // crop to fill without distortion
+          priority
+        />
+      </div>
 
-      <Image
-        src="/qi_headshot.jpg"
-        alt={profile.name}
-        width={50}      // set an appropriate intrinsic size
-        height={50}
-        className="w-full h-auto rounded"
-        priority         // optional: eager load on first paint
-      />
-
-  
       <div>
         <h2 className="text-xl font-bold">{profile.name}</h2>
         <a href={links.cv} className="italic text-blue-600 hover:underline">{`{CV}`}</a>
@@ -34,17 +35,6 @@ export default function Sidebar() {
         {links.x && <li><a href={links.x} target="_blank" className="hover:underline">Twitter</a></li>}
         <li><a href={links.email} className="hover:underline">e-Mail</a></li>
       </ul>
-
-      {/* Optional: embedded X feed, limit 3 posts */}
-      <div
-        dangerouslySetInnerHTML={{
-          __html: `
-            <a class="twitter-timeline" data-tweet-limit="3" href="${links.x || "https://x.com/YourUsername"}">Tweets by Qi Li</a>
-            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-          `,
-        }}
-      />
     </div>
   );
 }
-
