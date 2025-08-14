@@ -1,5 +1,6 @@
 [
-  { "term": "Spring 2025", "title": "CS540: Introduction to AI", "link": "https://example.edu/cs540" },
-  { "term": "Fall 2023", "title": "CS762: Advanced Deep Learning", "link": "https://example.edu/cs762" }
+  {"term": "2024—", "title": "CSCI 100: Introduction to Computing", "link": ""},
+  {"term": "2024—", "title": "CSCI 291: Theory of Computation", "link": ""},
+  {"term": "2024—", "title": "CSCI 390: NLP & Applications", "link": ""},
+  {"term": "2024—", "title": "CSCI 282: Programming Languages", "link": ""}
 ]
-

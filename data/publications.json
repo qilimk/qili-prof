@@ -1,19 +1,58 @@
 [
   {
-    "title": "Truthfulness Separator Vector for Hallucination Mitigation",
-    "authors": "Doe, J.; Li, Q.",
-    "venue": "ICML",
+    "title": "Developing Effective Techniques for the Recognition of Shanghai Dialect Text",
+    "authors": "Bao, Y.; Zhang, Z.; Arifuzzaman, M.; Le, T. D.; Li, Q.; Mwanza, M.; ...; Ye, J.",
+    "venue": "IEEE Access",
     "year": 2025,
-    "links": { "pdf": "#", "doi": "#", "code": "#" },
-    "tags": ["LLMs", "Reliability"]
+    "links": { "pdf": "" },
+    "tags": ["NLP"]
   },
   {
-    "title": "Out-of-Distribution Detection via Uncertainty Estimation",
-    "authors": "Doe, J.; Smith, A.",
-    "venue": "NeurIPS",
+    "title": "A Framework for Modeling County-Level COVID-19 Transmission",
+    "authors": "Bao, Y.; Huang, I.; Li, Q.; Zhang, Z.; Xing, Y.; Hou, D.; Ye, J.",
+    "venue": "Frontiers in Public Health",
+    "year": 2025,
+    "links": { "pdf": "" },
+    "tags": ["Health", "Modeling"]
+  },
+  {
+    "title": "VideoBadminton: A Video Dataset for Badminton Action Recognition",
+    "authors": "Li, Q.; Chiu, T. C.; Huang, H. W.; Sun, M. T.; Ku, W. S.",
+    "venue": "IEEE BigData",
     "year": 2024,
-    "links": { "pdf": "#", "doi": "#", "code": "#" },
-    "tags": ["OOD", "Uncertainty"]
+    "links": { "pdf": "" },
+    "tags": ["Dataset", "Action Recognition"]
+  },
+  {
+    "title": "CA-Wav2Lip: Coordinate Attention-based Speech To Lip Synthesis In The Wild",
+    "authors": "Wang, K. C.; Zhang, J.; Huang, J.; Li, Q.; Sun, M. T.; Sakai, K.; Ku, W. S.",
+    "venue": "SMARTCOMP",
+    "year": 2023,
+    "links": { "pdf": "" },
+    "tags": ["Multimodal"]
+  },
+  {
+    "title": "gScoreCAM: What objects is CLIP looking at?",
+    "authors": "Chen, P.; Li, Q.; Biaz, S.; Bui, T.; Nguyen, A.",
+    "venue": "ACCV (Oral)",
+    "year": 2022,
+    "links": { "pdf": "https://openaccess.thecvf.com/content/ACCV2022/papers/Chen_gScoreCAM_What_objects_is_CLIP_looking_at_ACCV_2022_paper.pdf", "code": "https://github.com/anguyen8/gScoreCAM" },
+    "tags": ["Explainability", "CLIP"]
+  },
+  {
+    "title": "A cost-effective method for improving and re-purposing large, pre-trained GANs by fine-tuning their class-embeddings",
+    "authors": "Li, Q.; Mai, L.; Alcorn, M. A.; Nguyen, A.",
+    "venue": "ACCV (Best Application Paper Honorable Mention)",
+    "year": 2020,
+    "links": { "pdf": "https://openaccess.thecvf.com/content/ACCV2020/papers/Li_A_cost-effective_method_for_improving_and_re-purposing_large_pre-trained_GANs_ACCV_2020_paper.pdf" },
+    "tags": ["GANs"]
+  },
+  {
+    "title": "Strike (with) a Pose: Neural Networks Are Easily Fooled by Strange Poses of Familiar Objects",
+    "authors": "Alcorn, M. A.; Li, Q.; Gong, Z.; Wang, C.; Mai, L.; Ku, W. S.; Nguyen, A.",
+    "venue": "CVPR",
+    "year": 2019,
+    "links": { "pdf": "https://arxiv.org/pdf/1811.11553.pdf", "code": "https://github.com/airalcorn2/strike-with-a-pose" },
+    "tags": ["Robustness", "3D Pose"]
   }
 ]
-

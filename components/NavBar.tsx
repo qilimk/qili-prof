@@ -8,7 +8,7 @@ const items = [
   { href: "/publications", label: "Publications" },
   { href: "/group", label: "Group" },
   { href: "/experiences", label: "Experiences" },
-  { href: "/awards", label: "Awards" },
+  { href: "/recognition", label: "Recognition" },
 ];
 
 export default function NavBar() {
