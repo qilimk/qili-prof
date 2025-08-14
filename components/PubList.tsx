@@ -37,7 +37,6 @@ export default function PubList() {
           <p className="text-sm text-gray-600">{p.venue}</p>
           <div className="mt-2 flex flex-wrap gap-3 text-sm">
             {p.links?.pdf  && <a className="underline" href={p.links.pdf}  target="_blank">PDF</a>}
-            {p.links?.doi  && <a className="underline" href={p.links.doi}  target="_blank">DOI</a>}
             {p.links?.code && <a className="underline" href={p.links.code} target="_blank">Code</a>}
           </div>
         </li>
