@@ -9,7 +9,7 @@ const items = [
   { href: "/group", label: "Group" },
   { href: "/experiences", label: "Experiences" },
   { href: "/recognition", label: "Recognition" },
-  { href: "/public/CV_QiLi_202508.pdf", label: "CV", external: true },
+  { href: "/CV_QiLi_202508.pdf", label: "CV", external: true },
 ];
 
 export default function NavBar() {

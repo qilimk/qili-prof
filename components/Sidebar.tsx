@@ -4,7 +4,7 @@ import links from "@/data/links.json";
 export default function Sidebar() {
   return (
     <div className="space-y-6 sticky top-6">
-      <img src="/public/qi_headshot.jpg" alt={profile.name} className="w-full rounded" />
+      <img src="/qi_headshot.jpg" alt={profile.name} className="w-full rounded" />
       <div>
         <h2 className="text-xl font-bold">{profile.name}</h2>
         <a href={links.cv} className="italic text-blue-600 hover:underline">{`{CV}`}</a>
