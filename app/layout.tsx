@@ -1,46 +1,46 @@
-import "./globals.css";
-import { Analytics } from "@vercel/analytics/next";
-import type { Metadata } from "next";
-import Script from "next/script";
-import NavBar from "@/components/NavBar";
+"use client";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useState } from "react";
 
-export const metadata: Metadata = {
-  title: "Prof. Qi Li — Computer Science",
-  description: "Research, publications, teaching, and group.",
-};
+const items = [
+  { href: "/", label: "About" },
+  { href: "/publications", label: "Publications" },
+  { href: "/group", label: "Group" },
+  { href: "/experiences", label: "Experiences" },
+  { href: "/recognition", label: "Recognition" },
+];
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
-  const token = process.env.NEXT_PUBLIC_CF_BEACON_TOKEN;
+export default function NavBar() {
+  const pathname = usePathname();
+  const [open, setOpen] = useState(false);
 
   return (
-    <html lang="en">
-      <body className="bg-white text-gray-900 antialiased">
-        <div id="top" />
-        <div className="mx-auto max-w-6xl px-4"> {/* wider to fit two columns */}
-          <NavBar />
+    <header className="py-6">
+      <div className="flex items-center justify-between">
+        <Link href="/" className="text-xl font-semibold">Prof. Jane Doe</Link>
+        <button
+          className="md:hidden rounded border px-3 py-1 text-sm"
+          onClick={() => setOpen(v => !v)}
+          aria-expanded={open}
+          aria-controls="primary-nav"
+        >Menu</button>
+      </div>
 
-          {/* Two-column layout */}
-          <div className="py-8 grid grid-cols-1 gap-8 md:grid-cols-4">
-            <aside className="md:col-span-1">
-              <Sidebar />
-            </aside>
-
-            <main className="md:col-span-3">
-              {children}
-            </main>
-          </div>
-
-          <Footer />
-        </div>
-
-        {/* Cloudflare Web Analytics */}
-        <Script
-          src="https://static.cloudflareinsights.com/beacon.min.js"
-          strategy="afterInteractive"
-          data-cf-beacon={JSON.stringify({ token })}
-        />
-        <Analytics />
-      </body>
-    </html>
+      <nav id="primary-nav" className={`mt-3 ${open ? "block" : "hidden"} md:block`}>
+        <ul className="flex flex-col gap-2 md:flex-row md:gap-6">
+          {items.map(i => (
+            <li key={i.href}>
+              <Link
+                href={i.href}
+                className={`hover:underline ${pathname === i.href ? "font-semibold" : ""}`}
+              >{i.label}</Link>
+            </li>
+          ))}
+          <li><a className="underline" href="/cv.pdf" target="_blank" rel="noreferrer">CV</a></li>
+        </ul>
+      </nav>
+      <hr className="mt-4 border-gray-200" />
+    </header>
   );
 }
