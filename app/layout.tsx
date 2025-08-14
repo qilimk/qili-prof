@@ -3,7 +3,6 @@ import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 import Script from "next/script";
 import NavBar from "@/components/NavBar";
-import Footer from "@/components/Footer";// ← add this
 
 export const metadata: Metadata = {
   title: "Prof. Qi Li — Computer Science",
