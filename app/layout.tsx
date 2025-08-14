@@ -15,6 +15,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className="bg-white text-gray-900 antialiased">
+        <div id="top" />
         <div className="mx-auto max-w-4xl px-4">
           <NavBar />
           <main className="py-8">{children}</main>

@@ -111,10 +111,8 @@ export default function RecognitionPage() {
       </div>
 
       <div className="pt-4">
-        <a href="#top" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}
-           className="text-sm text-blue-600 hover:underline">
-          Back to top
-        </a>
+        <a href="#top" className="text-sm text-blue-600 hover:underline">Back to top</a>
+
       </div>
     </section>
   );
