@@ -7,7 +7,7 @@ export default function Sidebar() {
   return (
     <div className="space-y-6">
       {/* Fixed-height, responsive headshot */}
-      <div className="relative w-full h-64 md:h-72 overflow-hidden rounded">
+      <div className="relative w-64 h-64 md:h-72 overflow-hidden rounded">
         <Image
           src="/qi_headshot.jpg"      // file must be in /public
           alt={profile.name}
