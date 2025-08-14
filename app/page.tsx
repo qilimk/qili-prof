@@ -1,4 +1,3 @@
-import Sidebar from "@/components/Sidebar";
 import profile from "@/data/profile.json";
 import updates from "@/data/updates.json";
 import teaching from "@/data/teaching.json";
