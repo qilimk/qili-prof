@@ -4,21 +4,34 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
+import Sidebar from "@/components/Sidebar"; // ← add this
 
 export const metadata: Metadata = {
-  title: "Prof. Jane Doe — Computer Science",
+  title: "Prof. Qi Li — Computer Science",
   description: "Research, publications, teaching, and group.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const token = process.env.NEXT_PUBLIC_CF_BEACON_TOKEN;
+
   return (
     <html lang="en">
       <body className="bg-white text-gray-900 antialiased">
         <div id="top" />
-        <div className="mx-auto max-w-4xl px-4">
+        <div className="mx-auto max-w-6xl px-4"> {/* wider to fit two columns */}
           <NavBar />
-          <main className="py-8">{children}</main>
+
+          {/* Two-column layout */}
+          <div className="py-8 grid grid-cols-1 gap-8 md:grid-cols-4">
+            <aside className="md:col-span-1">
+              <Sidebar />
+            </aside>
+
+            <main className="md:col-span-3">
+              {children}
+            </main>
+          </div>
+
           <Footer />
         </div>
 
@@ -28,7 +41,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           strategy="afterInteractive"
           data-cf-beacon={JSON.stringify({ token })}
         />
-      <Analytics />
+        <Analytics />
       </body>
     </html>
   );
