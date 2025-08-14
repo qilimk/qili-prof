@@ -1,6 +1,5 @@
 export interface Links {
   pdf?: string;
-  doi?: string;
   code?: string;
 }
 
