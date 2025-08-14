@@ -27,6 +27,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           strategy="afterInteractive"
           data-cf-beacon={JSON.stringify({ token })}
         />
+      <Analytics />
       </body>
     </html>
   );
