@@ -3,11 +3,11 @@ import pubsJson from "@/data/publications.json";
 import type { Publication } from "@/types/publication";
 import { useMemo, useState } from "react";
 
-// // Normalize & cast once so links is always an object
-// const pubs: Publication[] = (pubsJson as unknown as Publication[]).map(p => ({
-//   ...p,
-//   links: p.links ?? {},  // ensure links exists
-// }));
+// Normalize & cast once so links is always an object
+const pubs: Publication[] = (pubsJson as unknown as Publication[]).map(p => ({
+  ...p,
+  links: p.links ?? {},  // ensure links exists
+}));
 
 export default function PubList() {
   const [q, setQ] = useState("");
