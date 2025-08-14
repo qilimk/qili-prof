@@ -9,6 +9,7 @@ const items = [
   { href: "/group", label: "Group" },
   { href: "/experiences", label: "Experiences" },
   { href: "/recognition", label: "Recognition" },
+  { href: "/public/CV_QiLi_202508.pdf", label: "CV", external: true },
 ];
 
 export default function NavBar() {
@@ -18,30 +19,55 @@ export default function NavBar() {
   return (
     <header className="py-6">
       <div className="flex items-center justify-between">
-        <Link href="/" className="text-xl font-semibold">Prof. Jane Doe</Link>
+        {/* Logo / Name */}
+        <Link href="/" className="text-xl font-semibold">
+          Prof. Qi Li
+        </Link>
+
+        {/* Mobile menu toggle */}
         <button
           className="md:hidden rounded border px-3 py-1 text-sm"
-          onClick={() => setOpen(v => !v)}
+          onClick={() => setOpen((v) => !v)}
           aria-expanded={open}
           aria-controls="primary-nav"
-        >Menu</button>
+        >
+          Menu
+        </button>
       </div>
 
-      <nav id="primary-nav" className={`mt-3 ${open ? "block" : "hidden"} md:block`}>
+      {/* Navigation links */}
+      <nav
+        id="primary-nav"
+        className={`mt-3 ${open ? "block" : "hidden"} md:block`}
+      >
         <ul className="flex flex-col gap-2 md:flex-row md:gap-6">
-          {items.map(i => (
+          {items.map((i) => (
             <li key={i.href}>
-              <Link
-                href={i.href}
-                className={`hover:underline ${pathname === i.href ? "font-semibold" : ""}`}
-              >{i.label}</Link>
+              {i.external ? (
+                <a
+                  href={i.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:underline"
+                >
+                  {i.label}
+                </a>
+              ) : (
+                <Link
+                  href={i.href}
+                  className={`hover:underline ${
+                    pathname === i.href ? "font-semibold" : ""
+                  }`}
+                >
+                  {i.label}
+                </Link>
+              )}
             </li>
           ))}
-          <li><a className="underline" href="/cv.pdf" target="_blank" rel="noreferrer">CV</a></li>
         </ul>
       </nav>
+
       <hr className="mt-4 border-gray-200" />
     </header>
   );
 }
-
