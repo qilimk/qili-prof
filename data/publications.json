@@ -1,0 +1,19 @@
+[
+  {
+    "title": "Truthfulness Separator Vector for Hallucination Mitigation",
+    "authors": "Doe, J.; Li, Q.",
+    "venue": "ICML",
+    "year": 2025,
+    "links": { "pdf": "#", "doi": "#", "code": "#" },
+    "tags": ["LLMs", "Reliability"]
+  },
+  {
+    "title": "Out-of-Distribution Detection via Uncertainty Estimation",
+    "authors": "Doe, J.; Smith, A.",
+    "venue": "NeurIPS",
+    "year": 2024,
+    "links": { "pdf": "#", "doi": "#", "code": "#" },
+    "tags": ["OOD", "Uncertainty"]
+  }
+]
+
