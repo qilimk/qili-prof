@@ -14,17 +14,18 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const token = process.env.NEXT_PUBLIC_CF_BEACON_TOKEN;
+
   return (
     <html lang="en">
       <body className="bg-white text-gray-900 antialiased">
         <div id="top" />
         <div className="mx-auto max-w-6xl px-4">
-          {/* Navbar always on top */}
+          {/* Navbar stays on top */}
           <NavBar />
 
-          {/* Sidebar + main content */}
-          <div className="grid gap-8 py-8 md:grid-cols-[210px,1fr]">
-            <aside className="md:sticky md:top-6 self-start">
+          {/* Sidebar (left) + Content (right) */}
+          <div className="py-8 grid grid-cols-1 sm:grid-cols-[220px,minmax(0,1fr)] gap-8 items-start">
+            <aside className="sm:sticky sm:top-6 self-start">
               <Sidebar />
             </aside>
 
