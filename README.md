@@ -38,11 +38,16 @@ Adding a new page (e.g. a blog or a new section) means adding a folder under
 
 ### Colors
 
-The accent color (links, hover states) is one CSS variable —
-`--color-accent` (and `--color-accent-hover`) in `app/globals.css`. Change
-those two hex values and every link on the site updates. Everything else is
-the Tailwind `slate` gray scale (`text-slate-900`, `border-slate-200`, etc.)
-throughout the components.
+Currently a monochrome, editorial palette (after the classic Poole/Hyde
+academic style): links (`#343434`) are barely darker than body text
+(`#333332`), darken to near-black (`#010101`) on hover, and show as `#676767`
+once visited within the page content. Background is off-white (`#fbfbfd`).
+All of that lives in `app/globals.css` — `--color-accent` /
+`--color-accent-hover` in the `@theme` block, the `--color-neutral-900`
+override right under it, the `body { background }` rule, and the
+`main a:visited` rule. Change those and every link/background/heading on the
+site updates. Everything else is the Tailwind `neutral` gray scale
+(`text-neutral-900`, `border-neutral-200`, etc.) throughout the components.
 
 ## Local development
 
