@@ -2,6 +2,9 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import profile from "@/data/profile.json";
+import links from "@/data/links.json";
+import { withBasePath } from "@/lib/basePath";
 
 const items = [
   { href: "/", label: "About" },
@@ -9,54 +12,58 @@ const items = [
   { href: "/group", label: "Group" },
   { href: "/experiences", label: "Experiences" },
   { href: "/recognition", label: "Recognition" },
-  { href: "/CV_QiLi_202508.pdf", label: "CV", external: true },
+  ...(links.cv ? [{ href: links.cv, label: "CV", external: true }] : []),
 ];
 
 export default function NavBar() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
+  const isActive = (href: string) =>
+    href === "/" ? pathname === "/" : pathname.startsWith(href);
+
   return (
-    <header className="py-6">
-      <div className="flex items-center justify-between">
-        {/* Logo / Name */}
-        <Link href="/" className="text-xl font-semibold">
-          Prof. Qi Li
-        </Link>
+    <header className="flex flex-wrap items-center justify-between gap-3 border-b border-gray-200 py-5">
+      <Link
+        href="/"
+        className="text-base font-semibold tracking-tight text-gray-900 no-underline"
+      >
+        {profile.name}
+      </Link>
 
-        {/* Mobile menu toggle */}
-        <button
-          className="md:hidden rounded border px-3 py-1 text-sm"
-          onClick={() => setOpen((v) => !v)}
-          aria-expanded={open}
-          aria-controls="primary-nav"
-        >
-          Menu
-        </button>
-      </div>
+      <button
+        className="rounded-md border border-gray-300 px-2.5 py-1 text-sm text-gray-600 sm:hidden"
+        onClick={() => setOpen((v) => !v)}
+        aria-expanded={open}
+        aria-controls="primary-nav"
+      >
+        Menu
+      </button>
 
-      {/* Navigation links */}
       <nav
         id="primary-nav"
-        className={`mt-3 ${open ? "block" : "hidden"} md:block`}
+        className={`${open ? "block" : "hidden"} w-full sm:block sm:w-auto`}
       >
-        <ul className="flex flex-col gap-2 md:flex-row md:gap-6">
+        <ul className="flex flex-col gap-3 pt-3 sm:flex-row sm:items-center sm:gap-6 sm:pt-0">
           {items.map((i) => (
             <li key={i.href}>
               {i.external ? (
                 <a
-                  href={i.href}
+                  href={withBasePath(i.href)}
                   target="_blank"
                   rel="noreferrer"
-                  className="hover:underline"
+                  className="text-sm text-gray-500 no-underline hover:text-blue-700"
                 >
                   {i.label}
                 </a>
               ) : (
                 <Link
                   href={i.href}
-                  className={`hover:underline ${
-                    pathname === i.href ? "font-semibold" : ""
+                  onClick={() => setOpen(false)}
+                  className={`text-sm no-underline transition-colors hover:text-blue-700 ${
+                    isActive(i.href)
+                      ? "font-semibold text-gray-900"
+                      : "text-gray-500"
                   }`}
                 >
                   {i.label}
@@ -66,8 +73,6 @@ export default function NavBar() {
           ))}
         </ul>
       </nav>
-
-      <hr className="mt-4 border-gray-200" />
     </header>
   );
 }

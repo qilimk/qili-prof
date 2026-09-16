@@ -1,11 +1,14 @@
+import profile from "@/data/profile.json";
+
 export default function Footer() {
   return (
-    <footer className="py-10 text-sm text-gray-600">
-      <hr className="border-gray-200" />
-      <div className="mt-4 flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
-        <p>© {new Date().getFullYear()} Jane Doe.</p>
-        <p>Minimal React re-implementation inspired by the reference site’s structure. </p>
-      </div>
+    <footer className="flex flex-col gap-1 border-t border-gray-200 py-8 text-sm text-gray-500 sm:flex-row sm:items-center sm:justify-between">
+      <p>
+        © {new Date().getFullYear()} {profile.name}
+      </p>
+      <a href="#top" className="text-gray-500 no-underline hover:text-blue-700">
+        Back to top ↑
+      </a>
     </footer>
   );
 }

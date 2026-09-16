@@ -1,36 +1,75 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Qi Li — faculty page
 
-## Getting Started
+Personal academic site for Qi Li, built with Next.js and deployed as a static
+site on GitHub Pages. All content lives in plain JSON files under `data/` —
+edit those to update the site, no code changes needed.
 
-First, run the development server:
+Live at: `https://qilimk.github.io/qili-prof/`
+
+## Editing content
+
+Every page reads from a JSON file in `data/`. Edit the file, commit, and push
+to `main` — GitHub Actions rebuilds and redeploys the site automatically
+(usually within a minute or two).
+
+| File | Powers | Shape |
+|---|---|---|
+| `data/profile.json` | Name/title, About text, site `<title>` | `{ name, title, dept, university, office, bio, email, phone }` |
+| `data/links.json` | Sidebar links + nav CV link | `{ cv, scholar, github, linkedin, x, email }` — set any value to `""` to hide that link |
+| `data/updates.json` | Home page "Updates" list | array of `{ date, text }`, newest first |
+| `data/teaching.json` | Home page "Teaching" list | array of `{ term, title, link }` |
+| `data/publications.json` | `/publications` (searchable/filterable) | array of `{ title, authors, venue, year, links: { pdf, code }, tags: [] }` |
+| `data/group.json` | `/group` | array of `{ name, role, site }` |
+| `data/experiences.json` | `/experiences` | array of `{ year, text }` |
+| `data/awards.json` | `/recognition` → Awards | array of `{ year, text }` |
+| `data/talks.json` | `/recognition` → Talks | array of `{ date, title }` |
+| `data/press.json` | `/recognition` → Press | array of `{ year, outlet, title, link }` |
+
+To add a new item to any list, just add a new object to the corresponding
+array — the page re-sorts and re-renders automatically.
+
+To replace the headshot, swap `public/qi_headshot.jpg` (keep the filename, or
+update the `src` in `components/Sidebar.tsx`). To replace the CV, swap
+`public/CV_QiLi_202508.pdf` and update `data/links.json`'s `cv` field to match.
+
+Adding a new page (e.g. a blog or a new section) means adding a folder under
+`app/` with a `page.tsx`, plus a matching entry in the `items` array in
+`components/NavBar.tsx`.
+
+## Local development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Deployment (GitHub Pages)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This repo builds as a static export (`output: "export"` in `next.config.ts`)
+and deploys via `.github/workflows/deploy.yml` on every push to `main`.
 
-## Learn More
+One-time setup in the GitHub repo: **Settings → Pages → Source: GitHub
+Actions**. After that, pushes to `main` deploy automatically — no manual
+build step.
 
-To learn more about Next.js, take a look at the following resources:
+The site is served from a project page
+(`https://<user>.github.io/<repo-name>/`), so the build sets
+`NEXT_PUBLIC_BASE_PATH` to `/<repo-name>` (derived automatically from the
+repo name in the workflow — nothing to configure by hand, even if the repo
+is renamed or forked).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+To preview the production build locally:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+NEXT_PUBLIC_BASE_PATH=/qili-prof npm run build
+npx serve out
+```
 
-## Deploy on Vercel
+## Template for other faculty
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This site started from
+[`faculty-page-template`](../faculty-page-template), a stripped-down copy of
+this same code with placeholder content. To spin up a page for another
+faculty member, clone that template rather than this repo — see its README.

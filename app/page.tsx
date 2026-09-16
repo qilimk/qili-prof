@@ -3,36 +3,50 @@ import profile from "@/data/profile.json";
 import updates from "@/data/updates.json";
 import teaching from "@/data/teaching.json";
 
+const sectionLabel =
+  "text-[13px] font-semibold uppercase tracking-[0.08em] text-gray-400";
+
 export default function HomePage() {
   return (
-    <section className="space-y-10">
-      {/* About */}
-      <div id="about">
-        <h1 className="mb-4 text-3xl font-bold">About</h1>
-        <p className="leading-8 text-gray-800">{profile.bio}</p>
-      </div>
+    <div className="space-y-12">
+      <section id="about">
+        <h1 className="text-2xl font-bold tracking-tight text-gray-900">About</h1>
+        <p className="mt-4 max-w-prose text-[15px] leading-7 text-gray-700">
+          {profile.bio}
+        </p>
+      </section>
 
-      {/* Updates */}
-      <div id="updates">
-        <h2 className="mb-4 text-2xl font-semibold">Updates</h2>
-        <ul className="space-y-2">
+      <section id="updates">
+        <h2 className={sectionLabel}>Updates</h2>
+        <ul className="mt-4 space-y-3">
           {updates.map((u, i) => (
-            <li key={i}>
-              <span className="text-gray-600">{u.date}:</span> {u.text}
+            <li
+              key={i}
+              className="flex flex-col gap-0.5 text-[15px] leading-7 text-gray-700 sm:flex-row sm:gap-4"
+            >
+              <span className="shrink-0 tabular-nums text-gray-400 sm:w-24">
+                {u.date}
+              </span>
+              <span>{u.text}</span>
             </li>
           ))}
         </ul>
-      </div>
+      </section>
 
-      {/* Teaching */}
-      <div id="teaching">
-        <h2 className="mb-4 text-2xl font-semibold">Teaching</h2>
-        <ul className="space-y-2">
+      <section id="teaching">
+        <h2 className={sectionLabel}>Teaching</h2>
+        <ul className="mt-4 space-y-3">
           {teaching.map((c, i) => (
-            <li key={i}><span className="font-medium">{c.term}</span>: {c.title}</li>
+            <li
+              key={i}
+              className="flex flex-col gap-0.5 text-[15px] leading-7 text-gray-700 sm:flex-row sm:gap-4"
+            >
+              <span className="shrink-0 text-gray-400 sm:w-24">{c.term}</span>
+              <span>{c.title}</span>
+            </li>
           ))}
         </ul>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 }

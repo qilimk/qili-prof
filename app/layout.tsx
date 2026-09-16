@@ -1,15 +1,15 @@
 // app/layout.tsx
 import "./globals.css";
-import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 import Script from "next/script";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import Sidebar from "@/components/Sidebar";
+import profile from "@/data/profile.json";
 
 export const metadata: Metadata = {
-  title: "Prof. Qi Li — Computer Science",
-  description: "Research, publications, teaching, and group.",
+  title: `${profile.name} — ${profile.university}`,
+  description: profile.bio,
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -19,19 +19,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className="bg-white text-gray-900 antialiased">
         <div id="top" />
-        <div className="mx-auto max-w-6xl px-4">
-          {/* Navbar stays on top */}
+        <div className="mx-auto max-w-5xl px-5 sm:px-6">
           <NavBar />
 
-          {/* Sidebar (left) + Content (right) */}
-          <div className="py-8 grid grid-cols-1 sm:grid-cols-[220px,minmax(0,1fr)] gap-8 items-start">
-            <aside className="sm:sticky sm:top-6 self-start">
+          <div className="grid grid-cols-1 gap-10 py-10 sm:grid-cols-[210px_minmax(0,1fr)] sm:gap-12 lg:gap-16">
+            <aside className="self-start sm:sticky sm:top-8">
               <Sidebar />
             </aside>
 
-            <main className="min-w-0">
-              {children}
-            </main>
+            <main className="min-w-0">{children}</main>
           </div>
 
           <Footer />
@@ -43,7 +39,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           strategy="afterInteractive"
           data-cf-beacon={JSON.stringify({ token })}
         />
-        <Analytics />
       </body>
     </html>
   );
