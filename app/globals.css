@@ -2,14 +2,13 @@
 
 /* Single source of truth for the site's accent color — change --color-accent
    here (and optionally --color-accent-hover) to re-theme every link at once.
-   Currently a monochrome palette (after the classic Poole/Hyde academic
-   style): links are nearly the same charcoal as body text, darkening to
-   near-black on hover instead of taking on a separate color.
-   --color-neutral-900 is also overridden so headings/body text share that
-   same warm charcoal instead of Tailwind's cooler default black. */
+   A deep teal, chosen to read clearly as a link against the body text
+   instead of blending in with it. --color-neutral-900 is overridden so
+   headings/body text use a warm charcoal instead of Tailwind's cooler
+   default black. */
 @theme {
-  --color-accent: #343434;
-  --color-accent-hover: #010101;
+  --color-accent: #0f766e;
+  --color-accent-hover: #115e59;
   --color-neutral-900: #333332;
 }
 
