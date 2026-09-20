@@ -1,10 +1,26 @@
 [
   {
+    "title": "A Temporal Machine Learning-Based Time-to-Event Model for Predicting ALS Progression and Healthcare Utilization",
+    "authors": "Yue, Z.; Li, Q.; Heiman-Patterson, T.; Bearoff, F.; Qin, Z.; Wu, H.",
+    "venue": "arXiv preprint",
+    "year": 2026,
+    "links": { "pdf": "https://arxiv.org/abs/2607.14190" },
+    "tags": ["Health", "Machine Learning"]
+  },
+  {
+    "title": "GOLDEN Fusion: A Graph-Oriented Learning with Domain-Embedding Network Fusion for Generating Super Gene Sets in Functional Genomics",
+    "authors": "Li, Q.; Nichols, C.; Welner, R. S.; Chen, J. Y.; Ku, W. S.; Yue, Z.",
+    "venue": "Briefings in Bioinformatics",
+    "year": 2026,
+    "links": { "pdf": "https://doi.org/10.1093/bib/bbag244" },
+    "tags": ["Bioinformatics", "Genomics"]
+  },
+  {
     "title": "Developing Effective Techniques for the Recognition of Shanghai Dialect Text",
     "authors": "Bao, Y.; Zhang, Z.; Arifuzzaman, M.; Le, T. D.; Li, Q.; Mwanza, M.; ...; Ye, J.",
     "venue": "IEEE Access",
     "year": 2025,
-    "links": { "pdf": "" },
+    "links": { "pdf": "https://doi.org/10.1109/access.2025.3583708" },
     "tags": ["NLP"]
   },
   {
@@ -12,7 +28,7 @@
     "authors": "Bao, Y.; Huang, I.; Li, Q.; Zhang, Z.; Xing, Y.; Hou, D.; Ye, J.",
     "venue": "Frontiers in Public Health",
     "year": 2025,
-    "links": { "pdf": "" },
+    "links": { "pdf": "https://doi.org/10.3389/fpubh.2025.1608360" },
     "tags": ["Health", "Modeling"]
   },
   {
@@ -20,15 +36,23 @@
     "authors": "Li, Q.; Chiu, T. C.; Huang, H. W.; Sun, M. T.; Ku, W. S.",
     "venue": "IEEE BigData",
     "year": 2024,
-    "links": { "pdf": "" },
+    "links": { "pdf": "https://doi.org/10.1109/bigdata62323.2024.10825009" },
     "tags": ["Dataset", "Action Recognition"]
+  },
+  {
+    "title": "Toden-E: Topology-Based and Density-Based Ensembled Clustering for the Development of Super-PAG in Functional Genomics using PAG Network and LLM",
+    "authors": "Li, Q.; Nichols, C.; Welner, R. S.; Chen, J. Y.; Ku, W. S.; Yue, Z.",
+    "venue": "bioRxiv preprint",
+    "year": 2024,
+    "links": { "pdf": "https://doi.org/10.1101/2024.10.20.619308" },
+    "tags": ["Bioinformatics", "LLM"]
   },
   {
     "title": "CA-Wav2Lip: Coordinate Attention-based Speech To Lip Synthesis In The Wild",
     "authors": "Wang, K. C.; Zhang, J.; Huang, J.; Li, Q.; Sun, M. T.; Sakai, K.; Ku, W. S.",
     "venue": "SMARTCOMP",
     "year": 2023,
-    "links": { "pdf": "" },
+    "links": { "pdf": "https://doi.org/10.1109/smartcomp58114.2023.00018" },
     "tags": ["Multimodal"]
   },
   {
@@ -48,11 +72,27 @@
     "tags": ["GANs"]
   },
   {
+    "title": "Understanding and Improving Generative Adversarial Networks",
+    "authors": "Li, Q.",
+    "venue": "Auburn University (Ph.D. Dissertation)",
+    "year": 2020,
+    "links": { "pdf": "https://etd.auburn.edu/handle/10415/7100" },
+    "tags": ["GANs", "Dissertation"]
+  },
+  {
     "title": "Strike (with) a Pose: Neural Networks Are Easily Fooled by Strange Poses of Familiar Objects",
     "authors": "Alcorn, M. A.; Li, Q.; Gong, Z.; Wang, C.; Mai, L.; Ku, W. S.; Nguyen, A.",
     "venue": "CVPR",
     "year": 2019,
     "links": { "pdf": "https://arxiv.org/pdf/1811.11553.pdf", "code": "https://github.com/airalcorn2/strike-with-a-pose" },
     "tags": ["Robustness", "3D Pose"]
+  },
+  {
+    "title": "Improving sample diversity of a pre-trained, class-conditional GAN by changing its class embeddings",
+    "authors": "Li, Q.; Mai, L.; Nguyen, A.",
+    "venue": "arXiv preprint",
+    "year": 2019,
+    "links": { "pdf": "https://arxiv.org/abs/1910.04760" },
+    "tags": ["GANs"]
   }
 ]
