@@ -1,0 +1,453 @@
+/* ============================================================
+   Design tokens — the only place colors/fonts should be changed.
+   Editing content never requires touching this file.
+   ============================================================ */
+:root {
+  --color-accent: #0f766e;
+  --color-accent-hover: #115e59;
+  --color-ink: #333332;      /* headings, primary text */
+  --color-text: #404040;     /* body paragraphs, list rows */
+  --color-muted: #525252;    /* secondary text (e.g. authors) */
+  --color-subtle: #737373;   /* tertiary text (e.g. role, venue) */
+  --color-faint: #a3a3a3;    /* dates, section labels */
+  --color-border: #d4d4d4;
+  --color-border-light: #e5e5e5;
+  --color-divide: #f0f0f0;
+  --color-bg: #fbfbfd;
+  --color-selection: #e8e8ed;
+  --color-visited: #676767;
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-selection);
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  text-underline-offset: 2px;
+}
+a:hover {
+  color: var(--color-accent-hover);
+  text-decoration: underline;
+}
+/* Scoped to <main> so it doesn't fight the nav's link color or sidebar links. */
+main a:visited {
+  color: var(--color-visited);
+}
+
+code {
+  background: var(--color-divide);
+  border-radius: 4px;
+  padding: 1px 5px;
+  font-size: 0.9em;
+}
+
+.wrap {
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+@media (min-width: 640px) {
+  .wrap {
+    padding: 0 24px;
+  }
+}
+
+/* ---------- Header / nav ---------- */
+.site-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 1px solid var(--color-border-light);
+  padding: 20px 0;
+}
+.brand {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--color-ink);
+}
+.brand:hover {
+  color: var(--color-ink);
+  text-decoration: none;
+}
+.menu-toggle {
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 14px;
+  color: var(--color-muted);
+  background: transparent;
+  cursor: pointer;
+  font-family: inherit;
+}
+.primary-nav {
+  width: 100%;
+  display: none;
+}
+.primary-nav.open {
+  display: block;
+}
+.primary-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 12px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.primary-nav a {
+  color: var(--color-subtle);
+  font-size: 14px;
+}
+.primary-nav a:hover {
+  color: var(--color-accent);
+}
+@media (min-width: 640px) {
+  .menu-toggle {
+    display: none;
+  }
+  .primary-nav {
+    display: block;
+    width: auto;
+  }
+  .primary-nav ul {
+    flex-direction: row;
+    align-items: center;
+    gap: 24px;
+    padding-top: 0;
+    flex-wrap: wrap;
+  }
+}
+
+/* ---------- Layout: sidebar + main ---------- */
+.layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  padding: 40px 0;
+}
+@media (min-width: 640px) {
+  .layout {
+    grid-template-columns: 210px minmax(0, 1fr);
+    gap: 48px;
+  }
+  .sidebar {
+    align-self: start;
+    position: sticky;
+    top: 32px;
+  }
+}
+@media (min-width: 1024px) {
+  .layout {
+    gap: 64px;
+  }
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.avatar {
+  border-radius: 8px;
+  border: 1px solid var(--color-border-light);
+  object-fit: cover;
+  display: block;
+}
+.identity .name {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--color-ink);
+  margin: 0;
+}
+.identity .meta {
+  margin: 4px 0 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--color-subtle);
+}
+.social-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 14px;
+}
+
+.content {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+}
+
+/* ---------- Section typography ---------- */
+section h1 {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--color-ink);
+  margin: 0;
+}
+.section-label {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-faint);
+  margin: 0;
+}
+.sub-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.bio {
+  max-width: 65ch;
+  margin: 16px 0 0;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--color-text);
+}
+.bio p + p {
+  margin-top: 1em;
+}
+
+/* ---------- Date-prefixed row lists (Updates, Teaching, Experiences, Awards, Talks, Press) ---------- */
+.date-list {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.date-list li {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--color-text);
+}
+.date-list .date {
+  flex-shrink: 0;
+  color: var(--color-faint);
+}
+@media (min-width: 640px) {
+  .date-list li {
+    flex-direction: row;
+    gap: 16px;
+  }
+  .date-list .date {
+    width: 96px;
+  }
+  .date-list.wide .date {
+    width: 176px;
+  }
+}
+.date-list .date.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- Group ---------- */
+.group-list {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.group-name {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--color-ink);
+}
+.group-role {
+  margin: 0;
+  font-size: 14px;
+  color: var(--color-subtle);
+}
+.group-list a {
+  font-size: 14px;
+}
+
+/* ---------- Recognition sub-nav / sub-sections ---------- */
+.subnav {
+  display: flex;
+  gap: 16px;
+  font-size: 14px;
+  margin-top: 12px;
+}
+.sub-section {
+  margin-top: 32px;
+}
+.sub-section:first-of-type {
+  margin-top: 24px;
+}
+
+/* ---------- Publications ---------- */
+.pub-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 16px;
+}
+@media (min-width: 640px) {
+  .pub-controls {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+.pub-controls input[type="search"] {
+  width: 100%;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 14px;
+  font-family: inherit;
+}
+@media (min-width: 640px) {
+  .pub-controls input[type="search"] {
+    max-width: 320px;
+  }
+}
+.pub-controls select {
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 6px 8px;
+  font-size: 14px;
+  color: var(--color-text);
+  font-family: inherit;
+  background: #fff;
+}
+.pub-controls input:focus,
+.pub-controls select:focus {
+  outline: none;
+  border-color: var(--color-ink);
+}
+
+.pub-list {
+  list-style: none;
+  margin: 24px 0 0;
+  padding: 0;
+}
+.pub-item {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--color-divide);
+}
+.pub-title-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 8px;
+}
+.pub-title-row h3 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-ink);
+}
+.pub-year {
+  font-size: 14px;
+  color: var(--color-faint);
+}
+.pub-authors {
+  margin: 4px 0 0;
+  font-size: 14px;
+  color: var(--color-muted);
+}
+.pub-venue {
+  margin: 0;
+  font-size: 14px;
+  font-style: italic;
+  color: var(--color-subtle);
+}
+.pub-links {
+  margin-top: 6px;
+  display: flex;
+  gap: 12px;
+  font-size: 14px;
+}
+.pub-empty {
+  padding: 16px 0;
+  font-size: 14px;
+  color: var(--color-subtle);
+}
+
+/* ---------- CV ---------- */
+.cv-button {
+  display: inline-block;
+  margin-top: 16px;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-ink);
+}
+.cv-button:hover {
+  border-color: var(--color-ink);
+  color: var(--color-ink);
+  text-decoration: none;
+}
+.cv-placeholder {
+  margin-top: 16px;
+  font-size: 14px;
+  color: var(--color-subtle);
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border-top: 1px solid var(--color-border-light);
+  padding: 32px 0;
+  font-size: 14px;
+  color: var(--color-subtle);
+}
+@media (min-width: 640px) {
+  .site-footer {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+.site-footer a {
+  color: var(--color-subtle);
+}
+.site-footer a:hover {
+  color: var(--color-accent);
+}

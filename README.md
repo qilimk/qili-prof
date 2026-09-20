@@ -1,88 +1,95 @@
 # Qi Li — faculty page
 
-Personal academic site for Qi Li, built with Next.js and deployed as a static
-site on GitHub Pages. All content lives in plain JSON files under `data/` —
-edit those to update the site, no code changes needed.
+Personal academic site for Qi Li. Pure HTML/CSS/JS, no framework, no build
+step, no `npm install` — content and styling are in separate files on
+purpose, so editing content never risks breaking the design.
 
 Live at: `https://qilimk.github.io/qili-prof/`
 
 ## Editing content
 
-Every page reads from a JSON file in `data/`. Edit the file, commit, and push
-to `main` — GitHub Actions rebuilds and redeploys the site automatically
-(usually within a minute or two).
+Everything on the page is in **`index.html`**, top to bottom in the order
+it's displayed: About, Updates, Teaching, Publications, Group, Experiences,
+Recognition, CV. Find the section by its `<h1>`/`<h2>` heading or its
+`id="..."` (e.g. `id="publications"`), copy an existing entry's HTML block,
+paste it, and edit the text inside.
 
-| File | Powers | Shape |
-|---|---|---|
-| `data/profile.json` | Name/title, About text, site `<title>` | `{ name, title, dept, university, office, bio, email, phone }` |
-| `data/links.json` | Sidebar links + nav CV link | `{ cv, scholar, github, linkedin, x, email }` — set any value to `""` to hide that link |
-| `data/updates.json` | Home page "Updates" list | array of `{ date, text }`, newest first |
-| `data/teaching.json` | Home page "Teaching" list | array of `{ term, title, link }` |
-| `data/publications.json` | `/publications` (searchable/filterable) | array of `{ title, authors, venue, year, links: { pdf, code }, tags: [] }` |
-| `data/group.json` | `/group` | array of `{ name, role, site }` |
-| `data/experiences.json` | `/experiences` | array of `{ year, text }` |
-| `data/awards.json` | `/recognition` → Awards | array of `{ year, text }` |
-| `data/talks.json` | `/recognition` → Talks | array of `{ date, title }` |
-| `data/press.json` | `/recognition` → Press | array of `{ year, outlet, title, link }` |
+For example, to add a new update, find `<section id="updates">` and copy one
+of its `<li>` lines:
 
-To add a new item to any list, just add a new object to the corresponding
-array — the page re-sorts and re-renders automatically.
-
-To replace the headshot, swap `public/qi_headshot.jpg` (keep the filename, or
-update the `src` in `components/Sidebar.tsx`). To replace the CV, swap
-`public/CV_QiLi_202508.pdf` and update `data/links.json`'s `cv` field to match.
-
-Adding a new page (e.g. a blog or a new section) means adding a folder under
-`app/` with a `page.tsx`, plus a matching entry in the `items` array in
-`components/NavBar.tsx`.
-
-### Colors
-
-Links are a deep teal (`#0f766e`, darkening to `#115e59` on hover) against
-warm charcoal body text (`#333332`), so they read clearly as links instead of
-blending in — and show as `#676767` once visited within the page content.
-Background is off-white (`#fbfbfd`). All of that lives in
-`app/globals.css` — `--color-accent` / `--color-accent-hover` in the
-`@theme` block, the `--color-neutral-900` override right under it, the
-`body { background }` rule, and the
-`main a:visited` rule. Change those and every link/background/heading on the
-site updates. Everything else is the Tailwind `neutral` gray scale
-(`text-neutral-900`, `border-neutral-200`, etc.) throughout the components.
-
-## Local development
-
-```bash
-npm install
-npm run dev
+```html
+<li><span class="date tabular">2024-12-01</span><span>Released VideoBadminton dataset paper (IEEE BigData 2024).</span></li>
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+Change the date and text, keep the same tags around them, and add it above
+the other entries (lists are newest-first — there's no automatic sorting,
+so put new items where you want them to appear).
+
+The same copy-a-block-and-edit-the-text pattern works for every section:
+Teaching and Experiences use the same `<li><span class="date">...` shape;
+Group uses `<li><p class="group-name">...</p><p class="group-role">...</p></li>`;
+Recognition's Awards/Talks/Press are each their own list inside
+`<section id="recognition">`.
+
+**Publications** are a bit more structured — each is a `<li class="pub-item"
+data-tags="...">` block with a title, year, authors, venue, and PDF/code
+links. The `data-tags` attribute drives the topic filter dropdown (comma
+lists, edit freely) and the search box; both are handled by `script.js`
+without needing a data file.
+
+**To replace the headshot**: swap `qi_headshot.jpg` for your own image (same
+filename, or update the `src` in the sidebar's `<img>` tag). **To replace the
+CV**: swap `CV_QiLi_202508.pdf` (same filename, or update the two `href`s
+that reference it — the sidebar link and the CV section's download button).
+
+Edit the file, commit, and push to `main` — GitHub Pages serves the updated
+file directly. No build, no deploy pipeline; changes are live as soon as
+GitHub Pages picks up the push (usually under a minute).
+
+## Colors, fonts, layout
+
+All of that lives in **`style.css`** — never in `index.html`. The whole
+palette is defined once at the top as CSS custom properties:
+
+```css
+:root {
+  --color-accent: #0f766e;       /* links */
+  --color-accent-hover: #115e59; /* links on hover */
+  --color-ink: #333332;          /* headings, primary text */
+  ...
+}
+```
+
+Change a value there and everything using it updates across the whole page.
+Content edits in `index.html` should never need a matching edit in
+`style.css`, and vice versa — that separation is the point of this setup.
+
+## Behavior
+
+**`script.js`** is optional progressive enhancement: the mobile menu toggle
+and the Publications search/filter. The page is fully readable and
+navigable with JavaScript disabled; only those two interactions need it.
+
+## Local preview
+
+No install needed — either open `index.html` directly in a browser, or serve
+it locally so relative paths behave exactly like they will on GitHub Pages:
+
+```bash
+python3 -m http.server 8000
+```
+
+Then visit `http://localhost:8000`.
 
 ## Deployment (GitHub Pages)
 
-This repo builds as a static export (`output: "export"` in `next.config.ts`)
-and deploys via `.github/workflows/deploy.yml` on every push to `main`.
-
-One-time setup in the GitHub repo: **Settings → Pages → Source: GitHub
-Actions**. After that, pushes to `main` deploy automatically — no manual
-build step.
-
-The site is served from a project page
-(`https://<user>.github.io/<repo-name>/`), so the build sets
-`NEXT_PUBLIC_BASE_PATH` to `/<repo-name>` (derived automatically from the
-repo name in the workflow — nothing to configure by hand, even if the repo
-is renamed or forked).
-
-To preview the production build locally:
-
-```bash
-NEXT_PUBLIC_BASE_PATH=/qili-prof npm run build
-npx serve out
-```
+**Settings → Pages → Source: Deploy from a branch → `main` / `(root)`.**
+That's the entire deployment setup — GitHub Pages serves the repo's files
+as-is, so there's nothing to build and no GitHub Actions workflow.
 
 ## Template for other faculty
 
 This site started from
-[`faculty-page-template`](../faculty-page-template), a stripped-down copy of
-this same code with placeholder content. To spin up a page for another
-faculty member, clone that template rather than this repo — see its README.
+[`faculty-page-template`](../faculty-page-template), the same pure-HTML
+setup with placeholder content. To spin up a page for another faculty
+member, clone that template rather than this repo — see its README.
