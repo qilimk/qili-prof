@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Qi Li — Fisk University</title>
+<title>Publications — Qi Li</title>
 <meta name="description" content="Qi Li is an Assistant Professor of Computer Science at Fisk University working on deep learning, generative models, neural network robustness, human motion analysis, and interdisciplinary applications in healthcare and bioinformatics.">
 <link rel="icon" href="favicon.ico">
 <link rel="stylesheet" href="style.css">
@@ -52,40 +52,28 @@
     </aside>
 
     <main class="content">
-      <section id="about">
-        <h1>About</h1>
-        <p class="bio">
-          I am an Assistant Professor of Computer Science at Fisk University. I received his Ph.D. in Computer Science from Auburn University in 2024, where I was advised by <a href="https://www.eng.auburn.edu/~weishinn/" target="_blank" rel="noreferrer">Dr. Wei-Shinn (Jeff) Ku</a> and <a href="https://anhnguyen.me/" target="_blank" rel="noreferrer">Dr. Anh Nguyen</a>. My research spans artificial intelligence, neural network robustness and interpretability, human motion analysis, generative models, and interdisciplinary applications in healthcare and bioinformatics. My recent work includes fine-grained sports action recognition, AI-based human motion analysis, large language models for functional genomics, and computational methods for predicting disease progression. My research has been published in venues including CVPR, ACCV, IEEE BigData, IEEE Access, and Briefings in Bioinformatics. My work at ACCV received the Huawei Best Application Paper Honorable Mention.
-        </p>
-      </section>
+      <section>
+      <h1>Publications</h1>
 
-      <section id="updates">
-        <h2 class="section-label">Updates</h2>
-        <ul class="date-list">
-          <li><span class="date tabular">2026</span><span>Paper published: GOLDEN Fusion — a graph-oriented learning method for generating super gene sets in functional genomics (Briefings in Bioinformatics).</span></li>
-          <li><span class="date tabular">2026-07</span><span>Preprint posted: a temporal machine learning model for predicting ALS progression and healthcare utilization (arXiv).</span></li>
-          <li><span class="date tabular">2025</span><span>Paper published: a framework for modeling county-level COVID-19 transmission (Frontiers in Public Health).</span></li>
-          <li><span class="date tabular">2025</span><span>Paper published: developing effective techniques for the recognition of Shanghai dialect text (IEEE Access).</span></li>
-          <li><span class="date tabular">2024-12-01</span><span>Released VideoBadminton dataset paper (IEEE BigData 2024).</span></li>
-          <li><span class="date tabular">2024-10</span><span>Preprint posted: Toden-E, a topology- and density-based clustering method for Super-PAGs in functional genomics (bioRxiv).</span></li>
-          <li><span class="date tabular">2024-08</span><span>Started as Assistant Professor of Computer Science at Fisk University.</span></li>
-          <li><span class="date tabular">2024-03</span><span>Invited talk at MCBIOS 2024: Toden-E — Super-PAGs with LLMs.</span></li>
-          <li><span class="date tabular">2023</span><span>Paper published: CA-Wav2Lip, coordinate attention-based speech-to-lip synthesis in the wild (SMARTCOMP).</span></li>
-          <li><span class="date tabular">2023-08</span><span>Invited talk at Auburn University College of Nursing: applying human posture estimation to detect sitting posture.</span></li>
-          <li><span class="date tabular">2022-12-01</span><span>ACCV 2022 Oral: gScoreCAM—What objects is CLIP looking at?</span></li>
-          <li><span class="date tabular">2022-10</span><span>Invited talk at Columbus Data Science Forum: machine learning, posture, and healthcare applications.</span></li>
-          <li><span class="date tabular">2022-09</span><span>Invited talk at National Central University: a cost-effective method for improving and re-purposing large, pre-trained GANs.</span></li>
-          <li><span class="date tabular">2020-12-01</span><span>ACCV 2020 Huawei Best Application Paper Honorable Mention.</span></li>
-          <li><span class="date tabular">2020</span><span>Received the Outstanding Master Student Award, Auburn University.</span></li>
-          <li><span class="date tabular">2020-02</span><span>Invited talk at Columbus Data Science Forum: Generative Adversarial Networks.</span></li>
-          <li><span class="date tabular">2019</span><span>Paper published: Strike (with) a Pose — neural networks are easily fooled by strange poses of familiar objects (CVPR).</span></li>
-          <li><span class="date tabular">2019</span><span>Preprint posted: improving sample diversity of a pre-trained, class-conditional GAN (arXiv).</span></li>
-        </ul>
-      </section>
+      <div class="pub-controls">
+        <input type="search" id="pub-search" placeholder="Search title, author, venue…">
+        <select id="pub-tag">
+          <option value="">All topics</option>
+        </select>
+      </div>
 
-      <section id="selected-publications">
-        <h2 class="section-label">Selected Publications</h2>
-        <ul class="pub-list" id="selected-pub-list">
+      <ul class="pub-list" id="pub-list">
+          <li class="pub-item" data-tags="Health, Machine Learning">
+            <div class="pub-title-row">
+              <h3>A Temporal Machine Learning-Based Time-to-Event Model for Predicting ALS Progression and Healthcare Utilization</h3>
+              <span class="pub-year">2026</span>
+            </div>
+            <p class="pub-authors">Yue, Z.; Li, Q.; Heiman-Patterson, T.; Bearoff, F.; Qin, Z.; Wu, H.</p>
+            <p class="pub-venue">arXiv preprint</p>
+            <div class="pub-links">
+              <a href="https://arxiv.org/abs/2607.14190" target="_blank" rel="noreferrer">PDF</a>
+            </div>
+          </li>
           <li class="pub-item" data-tags="Bioinformatics, Genomics" data-selected="true">
             <div class="pub-title-row">
               <h3>GOLDEN Fusion: A Graph-Oriented Learning with Domain-Embedding Network Fusion for Generating Super Gene Sets in Functional Genomics</h3>
@@ -95,6 +83,61 @@
             <p class="pub-venue">Briefings in Bioinformatics</p>
             <div class="pub-links">
               <a href="https://doi.org/10.1093/bib/bbag244" target="_blank" rel="noreferrer">PDF</a>
+            </div>
+          </li>
+          <li class="pub-item" data-tags="NLP">
+            <div class="pub-title-row">
+              <h3>Developing Effective Techniques for the Recognition of Shanghai Dialect Text</h3>
+              <span class="pub-year">2025</span>
+            </div>
+            <p class="pub-authors">Bao, Y.; Zhang, Z.; Arifuzzaman, M.; Le, T. D.; Li, Q.; Mwanza, M.; ...; Ye, J.</p>
+            <p class="pub-venue">IEEE Access</p>
+            <div class="pub-links">
+              <a href="https://doi.org/10.1109/access.2025.3583708" target="_blank" rel="noreferrer">PDF</a>
+            </div>
+          </li>
+          <li class="pub-item" data-tags="Health, Modeling">
+            <div class="pub-title-row">
+              <h3>A Framework for Modeling County-Level COVID-19 Transmission</h3>
+              <span class="pub-year">2025</span>
+            </div>
+            <p class="pub-authors">Bao, Y.; Huang, I.; Li, Q.; Zhang, Z.; Xing, Y.; Hou, D.; Ye, J.</p>
+            <p class="pub-venue">Frontiers in Public Health</p>
+            <div class="pub-links">
+              <a href="https://doi.org/10.3389/fpubh.2025.1608360" target="_blank" rel="noreferrer">PDF</a>
+            </div>
+          </li>
+          <li class="pub-item" data-tags="Dataset, Action Recognition">
+            <div class="pub-title-row">
+              <h3>VideoBadminton: A Video Dataset for Badminton Action Recognition</h3>
+              <span class="pub-year">2024</span>
+            </div>
+            <p class="pub-authors">Li, Q.; Chiu, T. C.; Huang, H. W.; Sun, M. T.; Ku, W. S.</p>
+            <p class="pub-venue">IEEE BigData</p>
+            <div class="pub-links">
+              <a href="https://doi.org/10.1109/bigdata62323.2024.10825009" target="_blank" rel="noreferrer">PDF</a>
+            </div>
+          </li>
+          <li class="pub-item" data-tags="Bioinformatics, LLM">
+            <div class="pub-title-row">
+              <h3>Toden-E: Topology-Based and Density-Based Ensembled Clustering for the Development of Super-PAG in Functional Genomics using PAG Network and LLM</h3>
+              <span class="pub-year">2024</span>
+            </div>
+            <p class="pub-authors">Li, Q.; Nichols, C.; Welner, R. S.; Chen, J. Y.; Ku, W. S.; Yue, Z.</p>
+            <p class="pub-venue">bioRxiv preprint</p>
+            <div class="pub-links">
+              <a href="https://doi.org/10.1101/2024.10.20.619308" target="_blank" rel="noreferrer">PDF</a>
+            </div>
+          </li>
+          <li class="pub-item" data-tags="Multimodal">
+            <div class="pub-title-row">
+              <h3>CA-Wav2Lip: Coordinate Attention-based Speech To Lip Synthesis In The Wild</h3>
+              <span class="pub-year">2023</span>
+            </div>
+            <p class="pub-authors">Wang, K. C.; Zhang, J.; Huang, J.; Li, Q.; Sun, M. T.; Sakai, K.; Ku, W. S.</p>
+            <p class="pub-venue">SMARTCOMP</p>
+            <div class="pub-links">
+              <a href="https://doi.org/10.1109/smartcomp58114.2023.00018" target="_blank" rel="noreferrer">PDF</a>
             </div>
           </li>
           <li class="pub-item" data-tags="Explainability, CLIP" data-selected="true">
@@ -120,6 +163,17 @@
               <a href="https://openaccess.thecvf.com/content/ACCV2020/papers/Li_A_cost-effective_method_for_improving_and_re-purposing_large_pre-trained_GANs_ACCV_2020_paper.pdf" target="_blank" rel="noreferrer">PDF</a>
             </div>
           </li>
+          <li class="pub-item" data-tags="GANs, Dissertation">
+            <div class="pub-title-row">
+              <h3>Understanding and Improving Generative Adversarial Networks</h3>
+              <span class="pub-year">2020</span>
+            </div>
+            <p class="pub-authors">Li, Q.</p>
+            <p class="pub-venue">Auburn University (Ph.D. Dissertation)</p>
+            <div class="pub-links">
+              <a href="https://etd.auburn.edu/handle/10415/7100" target="_blank" rel="noreferrer">PDF</a>
+            </div>
+          </li>
           <li class="pub-item" data-tags="Robustness, 3D Pose" data-selected="true">
             <div class="pub-title-row">
               <h3>Strike (with) a Pose: Neural Networks Are Easily Fooled by Strange Poses of Familiar Objects</h3>
@@ -132,8 +186,19 @@
               <a href="https://github.com/airalcorn2/strike-with-a-pose" target="_blank" rel="noreferrer">Code</a>
             </div>
           </li>
-        </ul>
-        <p class="view-all"><a href="publications.html">View all publications →</a></p>
+          <li class="pub-item" data-tags="GANs">
+            <div class="pub-title-row">
+              <h3>Improving sample diversity of a pre-trained, class-conditional GAN by changing its class embeddings</h3>
+              <span class="pub-year">2019</span>
+            </div>
+            <p class="pub-authors">Li, Q.; Mai, L.; Nguyen, A.</p>
+            <p class="pub-venue">arXiv preprint</p>
+            <div class="pub-links">
+              <a href="https://arxiv.org/abs/1910.04760" target="_blank" rel="noreferrer">PDF</a>
+            </div>
+          </li>
+      </ul>
+      <p class="pub-empty" id="pub-empty" hidden>No matching publications.</p>
       </section>
 
     </main>

@@ -405,6 +405,10 @@ section h1 {
   font-size: 14px;
   color: var(--color-subtle);
 }
+.view-all {
+  margin-top: 16px;
+  font-size: 14px;
+}
 
 /* ---------- CV ---------- */
 .cv-button {
