@@ -2,6 +2,7 @@
 import profile from "@/data/profile.json";
 import updates from "@/data/updates.json";
 import teaching from "@/data/teaching.json";
+import { renderInlineLinks } from "@/lib/inlineLinks";
 
 const sectionLabel =
   "text-[13px] font-semibold uppercase tracking-[0.08em] text-neutral-400";
@@ -12,7 +13,7 @@ export default function HomePage() {
       <section id="about">
         <h1 className="text-2xl font-bold tracking-tight text-neutral-900">About</h1>
         <p className="mt-4 max-w-prose text-[15px] leading-6 text-neutral-700">
-          {profile.bio}
+          {renderInlineLinks(profile.bio)}
         </p>
       </section>
 

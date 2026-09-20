@@ -6,10 +6,11 @@ import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import Sidebar from "@/components/Sidebar";
 import profile from "@/data/profile.json";
+import { stripInlineLinks } from "@/lib/inlineLinks";
 
 export const metadata: Metadata = {
   title: `${profile.name} — ${profile.university}`,
-  description: profile.bio,
+  description: stripInlineLinks(profile.bio),
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
