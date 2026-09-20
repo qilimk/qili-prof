@@ -15,7 +15,7 @@ type Press = { year: string | number; outlet: string; title: string; link?: stri
 const sectionLabel =
   "text-[13px] font-semibold uppercase tracking-[0.08em] text-neutral-400";
 const row =
-  "flex flex-col gap-0.5 text-[15px] leading-7 text-neutral-700 sm:flex-row sm:gap-4";
+  "flex flex-col gap-0.5 text-[15px] leading-6 text-neutral-700 sm:flex-row sm:gap-4";
 const rowKey = "shrink-0 text-neutral-400 sm:w-24";
 
 const toYearNum = (y: string | number) =>

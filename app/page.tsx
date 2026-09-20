@@ -11,7 +11,7 @@ export default function HomePage() {
     <div className="space-y-12">
       <section id="about">
         <h1 className="text-2xl font-bold tracking-tight text-neutral-900">About</h1>
-        <p className="mt-4 max-w-prose text-[15px] leading-7 text-neutral-700">
+        <p className="mt-4 max-w-prose text-[15px] leading-6 text-neutral-700">
           {profile.bio}
         </p>
       </section>
@@ -22,7 +22,7 @@ export default function HomePage() {
           {updates.map((u, i) => (
             <li
               key={i}
-              className="flex flex-col gap-0.5 text-[15px] leading-7 text-neutral-700 sm:flex-row sm:gap-4"
+              className="flex flex-col gap-0.5 text-[15px] leading-6 text-neutral-700 sm:flex-row sm:gap-4"
             >
               <span className="shrink-0 tabular-nums text-neutral-400 sm:w-24">
                 {u.date}
@@ -39,7 +39,7 @@ export default function HomePage() {
           {teaching.map((c, i) => (
             <li
               key={i}
-              className="flex flex-col gap-0.5 text-[15px] leading-7 text-neutral-700 sm:flex-row sm:gap-4"
+              className="flex flex-col gap-0.5 text-[15px] leading-6 text-neutral-700 sm:flex-row sm:gap-4"
             >
               <span className="shrink-0 text-neutral-400 sm:w-24">{c.term}</span>
               <span>{c.title}</span>

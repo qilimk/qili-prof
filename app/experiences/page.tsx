@@ -10,7 +10,7 @@ export default function ExperiencesPage() {
         {exps.map((e, i) => (
           <li
             key={i}
-            className="flex flex-col gap-0.5 text-[15px] leading-7 text-neutral-700 sm:flex-row sm:gap-4"
+            className="flex flex-col gap-0.5 text-[15px] leading-6 text-neutral-700 sm:flex-row sm:gap-4"
           >
             <span className="shrink-0 text-neutral-400 sm:w-44">{e.year}</span>
             <span>{e.text}</span>
